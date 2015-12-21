@@ -1,0 +1,25 @@
+#default: &default
+#  adapter: mysql2
+#  encoding: utf8
+#  database: #fiverr_default
+#  pool: 5
+#  username:
+#  password:
+#  host: localhost
+
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+#
+#test:
+#  <<: *default
+#  database: #fiverr_test
+
+#production:
+#  <<: *default
+#  database: #fiverr_production
+#  username: fiverr
+#  password: <%= ENV['FIVERR_DATABASE_PASSWORD'] %>

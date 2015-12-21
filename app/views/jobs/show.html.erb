@@ -1,0 +1,14 @@
+
+        <h1>
+          <%= @job.title %>
+        </h1>
+        <p class="description">
+          <%= @job.description %>
+        </p>
+    
+              <% if user_signed_in? %>
+                  <%= link_to "Back", root_path, class: "btn btn-default" %>
+                <%= link_to "Edit", edit_job_path, class: "btn btn-default" %>
+                <%= link_to "Delete", job_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+              <% end %>
+            

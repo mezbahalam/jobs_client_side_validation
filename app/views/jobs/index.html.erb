@@ -1,0 +1,27 @@
+<div class="small-2 large-2 columns">
+<% if current_user %>
+<h4>side bar area</h4>
+<% else %>
+<h4>side bar area</h4>
+ <h6><a <%= link_to "Already have an account?", new_user_session_path %> > </a></h6>
+    <h6><a <%= link_to "Sign up",  new_user_registration_path %> > </a></h6>
+<% end %>
+</div>
+<div class="small-10 large-10 columns display">
+<h1>Jobs</h1>
+<br/>
+  <ul class="small-block-grid-3">
+
+<% @jobs.each do |job| %>
+
+  <li>
+    <h2><%= link_to job.title, job_path(job) %></h2>
+    <p><%= job.description %></p>
+     </li>
+
+<% end %>
+  </ul>
+</div>
+
+
+

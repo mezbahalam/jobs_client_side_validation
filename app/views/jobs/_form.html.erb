@@ -1,0 +1,50 @@
+
+
+
+<div class="row">
+  <div class="medium-4 columns">
+
+<%= simple_form_for @job, :validate => true do |form| %>
+    <%= form.input :title, :label => false, :placeholder => "Enter Job Title here"%>
+    <div id="textarea_title"></div>
+    <%= form.file_field :job_image,  :validate => { :presence => true } %>
+    <%= form.input :description,as: :text, :label => false,  maxlength:  @maximum_length, id: 'description', cols: "30", rows: "4", :placeholder => "Enter Job Descriptions here",error: ' please fill it' %>
+     <div id="textarea_feedback"></div>
+    <br /><br />
+
+
+    <%= form.button :submit, :class => 'button'  %>
+
+<% end %>
+
+
+
+<script>
+    $(document).ready(function() {
+        var text_max = 350;
+        $('#textarea_feedback').html('chars left: ' + text_max );
+
+        $('#job_description').keyup(function() {
+            var text_length = $('#job_description').val().length;
+            var text_remaining = text_max - text_length;
+
+            $('#textarea_feedback').html( 'chars left: ' + text_remaining );
+        });
+    });
+</script>
+<script>
+
+    $(document).ready(function() {
+        var text_max = 50;
+        $('#textarea_title').html('chars left: ' + text_max );
+
+        $('#job_title').keyup(function() {
+            var text_length = $('#job_title').val().length;
+            var text_remaining = text_max - text_length;
+
+            $('#textarea_title').html( 'chars left: ' + text_remaining );
+        });
+    });
+</script>
+  </div>
+</div>
